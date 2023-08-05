@@ -4,11 +4,16 @@ namespace App\Providers;
 
 use App\Data\Foo;
 use App\Data\Bar;
+use App\Service\HelloService;
+use App\Service\HelloServiceIndonesia;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 
 class FooBarServiceProvider extends ServiceProvider implements DeferrableProvider
 {
+    public array $singletons = [
+        HelloService::class => HelloServiceIndonesia::class
+    ];
     /**
      * Register services.
      *
